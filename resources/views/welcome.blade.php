@@ -1,99 +1,121 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
+<head>
+	<title>Kampoeng Tatu</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{{url('css_bantuan/images/icons/favicon.ico')}}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{url('css_bantuan/vendor/bootstrap/css/bootstrap.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{url('css_bantuan/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{url('css_bantuan/vendor/animate/animate.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{url('css_bantuan/vendor/select2/select2.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{url('css_bantuan/css/util.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url('css_bantuan/css/main.css')}}">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<!--  -->
+	<div class="simpleslide100">
+		<div class="simpleslide100-item bg-img1" style="background-image: url('css_bantuan/images/bg01.jpg');"></div>
+		<div class="simpleslide100-item bg-img1" style="background-image: url('css_bantuan/images/bg02.jpg');"></div>
+		<div class="simpleslide100-item bg-img1" style="background-image: url('css_bantuan/images/bg03.jpg');"></div>
+	</div>
 
-        <title>Laravel</title>
+	<div class="size1 overlay1">
+		<!--  -->
+		<div class="size1 flex-col-c-m p-l-15 p-r-15 p-t-50 p-b-50">
+			<h3 class="l1-txt1 txt-center p-b-25">
+				Coming Soon
+			</h3>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+			<p class="m2-txt1 txt-center p-b-48">
+				Our website is under construction, follow us for update now!
+			</p>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+			<div class="flex-w flex-c-m cd100 p-b-33">
+				<div class="flex-col-c-m size2 bor1 m-l-15 m-r-15 m-b-20">
+					<span class="l2-txt1 p-b-9 days">35</span>
+					<span class="s2-txt1">Days</span>
+				</div>
 
-            .full-height {
-                height: 100vh;
-            }
+				<div class="flex-col-c-m size2 bor1 m-l-15 m-r-15 m-b-20">
+					<span class="l2-txt1 p-b-9 hours">17</span>
+					<span class="s2-txt1">Hours</span>
+				</div>
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+				<div class="flex-col-c-m size2 bor1 m-l-15 m-r-15 m-b-20">
+					<span class="l2-txt1 p-b-9 minutes">50</span>
+					<span class="s2-txt1">Minutes</span>
+				</div>
 
-            .position-ref {
-                position: relative;
-            }
+				<div class="flex-col-c-m size2 bor1 m-l-15 m-r-15 m-b-20">
+					<span class="l2-txt1 p-b-9 seconds">39</span>
+					<span class="s2-txt1">Seconds</span>
+				</div>
+			</div>
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+			<!--<form class="w-full flex-w flex-c-m validate-form">-->
 
-            .content {
-                text-align: center;
-            }
+			<!--	<div class="wrap-input100 validate-input where1" data-validate = "Valid email is required: ex@abc.xyz">-->
+			<!--		<input class="input100 placeholder0 s2-txt2" type="text" name="email" placeholder="Enter Email Address">-->
+			<!--		<span class="focus-input100"></span>-->
+			<!--	</div>-->
+				
+				
+			<!--	<button class="flex-c-m size3 s2-txt3 how-btn1 trans-04 where1">-->
+			<!--		Subscribe-->
+			<!--	</button>-->
+			<!--</form>-->
+		</div>
+	</div>
 
-            .title {
-                font-size: 84px;
-            }
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
 
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
+	
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+<!--===============================================================================================-->	
+	<script src="{{url('css_bantuan/vendor/jquery/jquery-3.2.1.min.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{url('css_bantuan/vendor/bootstrap/js/popper.js')}}"></script>
+	<script src="{{url('css_bantuan/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{url('css_bantuan/vendor/select2/select2.min.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{url('css_bantuan/vendor/countdowntime/moment.min.js')}}"></script>
+	<script src="{{url('css_bantuan/vendor/countdowntime/moment-timezone.min.js')}}"></script>
+	<script src="{{url('css_bantuan/vendor/countdowntime/moment-timezone-with-data.min.js')}}"></script>
+	<script src="{{url('css_bantuan/vendor/countdowntime/countdowntime.js')}}"></script>
+	<script>
+		$('.cd100').countdown100({
+			/*Set Endtime here*/
+			/*Endtime must be > current time*/
+			endtimeYear: 0,
+			endtimeMonth: 0,
+			endtimeDate: 35,
+			endtimeHours: 18,
+			endtimeMinutes: 0,
+			endtimeSeconds: 0,
+			timeZone: "" 
+			// ex:  timeZone: "America/New_York"
+			//go to " http://momentjs.com/timezone/ " to get timezone
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="{{url('css_bantuan/vendor/tilt/tilt.jquery.min.js')}}"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="{{url('css_bantuan/js/main.js')}}"></script>
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
-    </body>
+</body>
 </html>
