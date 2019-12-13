@@ -368,7 +368,7 @@
           <ul class="treeview-menu">
             <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Data Pelanggan</a></li>
             <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Data Karyawan</a></li>
-            <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Register Pelanggan</a></li>
+            <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Register Penduduk</a></li>
             <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
           </ul>
         </li>
@@ -445,11 +445,7 @@
         @yield('judul_page')
         <small>@yield('subjudul')</small>
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Forms</a></li>
-        <li class="active">General Elements</li>
-      </ol>
+
     </section>
 
         @yield('mainpage')
