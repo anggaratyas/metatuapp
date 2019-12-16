@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title> @yield('title')</title>
+
+
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -12,20 +14,9 @@
   <link rel="stylesheet" href="{{url('assets/bower_components/font-awesome/css/font-awesome.min.css')}}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="{{url('assets/bower_components/Ionicons/css/ionicons.min.css')}}">
-  
-  
-  
-
-
-    
-
-
-  
+ 
   @yield('header')
 
-
- 
- 
   <!-- Theme style -->
   <link rel="stylesheet" href="{{url('assets/dist/css/AdminLTE.min.css')}}">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -62,9 +53,6 @@
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
-
-
-
 
 
 <!-- menu Kanan Atas -->
@@ -348,12 +336,9 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-            <span class="pull-right-container">
-              <!-- <i class="fa fa-angle-left pull-right"></i> -->
-            </span>
+        <li>
+          <a href="{{url('/main')}}">
+            <i class="fa fa-dashboard"></i> Dashboard
           </a>
         </li>
 
@@ -362,14 +347,13 @@
             <i class="fa fa-files-o"></i>
             <span>Basis Data</span>
             <span class="pull-right-container">
-              <!-- <span class="label label-primary pull-right">4</span> -->
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Data Pelanggan</a></li>
-            <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Data Karyawan</a></li>
-            <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Register Penduduk</a></li>
-            <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
+            <li><a href="{{url('/data_penduduk')}}"><i class="fa fa-circle-o"></i> Data Penduduk</a></li>
+            <li><a href="{{url('/data_pengurus')}}"><i class="fa fa-circle-o"></i> Data Pengurus</a></li>
+            <li><a href="{{url('/reg_penduduk')}}"><i class="fa fa-circle-o"></i> Register Penduduk</a></li>
+            <li><a href="{{url('/data_pemasang')}}"><i class="fa fa-circle-o"></i> Data Pelanggan</a></li>
           </ul>
         </li>
 
@@ -382,11 +366,11 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> REGISTER PELANGGAN BARU</a></li>
-            <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> BACA METER</a></li>
-            <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> PEMBAYARAN</a></li>
-            <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> KAS MASUK</a></li>
-            <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> KAS KELUAR</a></li>
+            <li><a href="{{url('/data_pemasang')}}"><i class="fa fa-circle-o"></i> REGISTER PELANGGAN BARU</a></li>
+            <li><a href="{{url('/data_pemasang')}}"><i class="fa fa-circle-o"></i> BACA METER</a></li>
+            <li><a href="{{url('/data_pemasang')}}"><i class="fa fa-circle-o"></i> PEMBAYARAN</a></li>
+            <li><a href="{{url('/data_pemasang')}}"><i class="fa fa-circle-o"></i> KAS MASUK</a></li>
+            <li><a href="{{url('/data_pemasang')}}"><i class="fa fa-circle-o"></i> KAS KELUAR</a></li>
           </ul>
         </li>
 
@@ -458,10 +442,25 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 1.0.0
     </div>
-    <strong>Copyright &copy; 2019 <a href="https://adminlte.io">Pemdes Metatu</a>.</strong> All rights
+    <strong>Copyright &copy; 2019 <a href="{{url('/')}}">Pemdes Metatu</a>.</strong> All rights
     reserved.
   </footer>
 <!-- ./wrapper -->
+
+
+
+<!-- jQuery 3 -->
+<script src="{{url('assets/bower_components/jquery/dist/jquery.min.js')}}"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="{{url('assets/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+<!-- SlimScroll -->
+<script src="{{url('assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
+<!-- FastClick -->
+<script src="{{url('assets/bower_components/fastclick/lib/fastclick.js')}}"></script>
+<!-- AdminLTE App -->
+<script src="{{url('assets/dist/js/adminlte.min.js')}}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{url('assets/dist/js/demo.js')}}"></script>
 
 @yield('scriptjs')
 
