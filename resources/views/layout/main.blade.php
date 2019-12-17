@@ -338,7 +338,7 @@
         <li class="header">MAIN NAVIGATION</li>
         <li>
           <a href="{{url('/main')}}">
-            <i class="fa fa-dashboard"></i> Dashboard
+            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
 

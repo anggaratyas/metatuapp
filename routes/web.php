@@ -44,6 +44,7 @@ Route::get('/profil', function(){
 Route::get('/', 'PagesController@index');
 
 Route::get('/penduduk', 'PendudukController@index');
+Route::get('/penduduk/{Penduduk}', 'PendudukController@show');
 
 Auth::routes();
 
