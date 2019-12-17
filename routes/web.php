@@ -11,25 +11,11 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
+
+
+// Route::get('/data_pemasang', function(){
+//     return view('dashboard/pelanggan/user');
 // });
-
-// Route::get('/main', function () {
-//     return view('dashboard/index');
-// });
-
-// Route::get('/tes', function(){
-//     return view('tes');
-// } );
-
-// Route::get('/reg_pemasang', function(){
-//     return view('dashboard/pelanggan/register');
-// });
-
-Route::get('/data_pemasang', function(){
-    return view('dashboard/pelanggan/user');
-});
 
 // Route::get('/data_penduduk', function(){
 //     return view('dashboard/admin/penduduk');
@@ -37,15 +23,37 @@ Route::get('/data_pemasang', function(){
 
 
 
-Route::get('/profil', function(){
-    return view('dashboard/pelanggan/profile');
+// Route::get('/profil', function(){
+//     return view('dashboard/pelanggan/profile');
+// });
+
+// Route::get('/', 'PagesController@index');
+
+// Route::get('/penduduk', 'PendudukController@index');
+// Route::get('/penduduk/{Penduduk}', 'PendudukController@show');
+
+// Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('/',function(){
+    return view('welcome');
 });
+Route::get('/login', 'AuthController@login')->name('login');
+Route::get('/postlogin', 'AuthController@postlogin');
+Route::get('/postlogout', 'AuthController@postlogout');
 
-Route::get('/', 'PagesController@index');
-
-Route::get('/penduduk', 'PendudukController@index');
-Route::get('/penduduk/{Penduduk}', 'PendudukController@show');
-
+Route::group(['middleware' => ['auth','checkRole:admin']],function(){
+    Route::get('/dashboard','DashboardController@index');
+    Route::get('/penduduk','PendudukController@index');
+    Route::get('/penduduk/{Penduduk}','PendudukController@show');
+    Route::get('/penduduk/create','PendudukController@create');
+    Route::get('/penduduk/{Penduduk}/edit','PendudukController@edit');
+    Route::get('/penduduk/{Penduduk}/update','PendudukController@update');
+    Route::get('/penduduk/{Penduduk}/delete','PendudukController@delete');
+    Route::get('/penduduk/{Penduduk}/profile','PendudukController@profile');
+});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

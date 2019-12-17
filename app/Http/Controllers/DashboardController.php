@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Penduduk;
+use App\Dashboard;
 use Illuminate\Http\Request;
 
-class PendudukController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class PendudukController extends Controller
      */
     public function index()
     {
-        $warga = Penduduk::all();
-        return view('dashboard/admin/penduduk', ['warga' => $warga]);
+        //
     }
 
     /**
@@ -42,21 +41,21 @@ class PendudukController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Penduduk  $penduduk
+     * @param  \App\Dashboard  $dashboard
      * @return \Illuminate\Http\Response
      */
-    public function show(Penduduk $penduduk)
+    public function show(Dashboard $dashboard)
     {
-        return view('dashboard.admin.warga', compact('penduduk'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Penduduk  $penduduk
+     * @param  \App\Dashboard  $dashboard
      * @return \Illuminate\Http\Response
      */
-    public function edit(Penduduk $penduduk)
+    public function edit(Dashboard $dashboard)
     {
         //
     }
@@ -65,10 +64,10 @@ class PendudukController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Penduduk  $penduduk
+     * @param  \App\Dashboard  $dashboard
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Penduduk $penduduk)
+    public function update(Request $request, Dashboard $dashboard)
     {
         //
     }
@@ -76,10 +75,10 @@ class PendudukController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Penduduk  $penduduk
+     * @param  \App\Dashboard  $dashboard
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Penduduk $penduduk)
+    public function destroy(Dashboard $dashboard)
     {
         //
     }
