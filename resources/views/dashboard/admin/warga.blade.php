@@ -10,6 +10,7 @@
 
 @section('mainpage')
 <!-- MAIN CONTENT -->
+@foreach( )
     <!-- Main content -->
     <section class="content">
 
