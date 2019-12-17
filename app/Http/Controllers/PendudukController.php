@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Penduduk;
 
 class PendudukController extends Controller
 {
@@ -13,7 +15,8 @@ class PendudukController extends Controller
      */
     public function index()
     {
-        //
+        $warga = Penduduk::all();
+        return view('dashboard/admin/penduduk', ['warga' => $warga]);
     }
 
     /**

@@ -27,13 +27,15 @@
 //     return view('dashboard/pelanggan/register');
 // });
 
-// Route::get('/data_pemasang', function(){
-//     return view('dashboard/pelanggan/user');
+Route::get('/data_pemasang', function(){
+    return view('dashboard/pelanggan/user');
+});
+
+// Route::get('/data_penduduk', function(){
+//     return view('dashboard/admin/penduduk');
 // });
 
-Route::get('/data_penduduk', function(){
-    return view('dashboard/admin/penduduk');
-});
+
 
 Route::get('/profil', function(){
     return view('dashboard/pelanggan/profile');
@@ -41,6 +43,7 @@ Route::get('/profil', function(){
 
 Route::get('/', 'PagesController@index');
 
+Route::get('/penduduk', 'PendudukController@index');
 
 Auth::routes();
 

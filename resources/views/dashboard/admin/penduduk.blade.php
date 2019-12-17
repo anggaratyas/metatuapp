@@ -56,7 +56,6 @@
                 <tr>
                   <th>No</th>
                   <th>NIK</th>
-                  <th>No. KK</th>
                   <th>Nama Lengkap</th>
                   <th>No. Telp</th>
                   <th>Tempat Lahir</th>
@@ -66,25 +65,24 @@
                   <th>RT</th>
                   <th>RW</th>
                   <th>Agama</th>
-                  <th>Pekerjaan</th>
                 </tr>
                 </thead>
                 <tbody>
+                @foreach ( $warga as $wg )
                 <tr>
-                  <td>1</td>
-                  <td>3525041560940001</td>
-                  <td>3525041560940001</td>
-                  <td>Ronggolawe</td>
-                  <td>085860889967</td>
-                  <td>Gresik</td>
-                  <td>16/02/94</td>
-                  <td>L</td>
-                  <td>Metatu</td>
-                  <td>001</td>
-                  <td>003</td>
-                  <td>Islam</td>
-                  <td>Petani</td>
+                  <td>{{ $wg -> id }}</td>
+                  <td>{{ $wg -> nik }}</td>
+                  <td>{{ $wg -> nama_lengkap }}</td>
+                  <td>{{ $wg -> tlp }}</td>
+                  <td>{{ $wg -> tempat_lahir }}</td>
+                  <td>{{ $wg -> tgl_lahir }}</td>
+                  <td>{{ $wg -> jenis_kel }}</td>
+                  <td>{{ $wg -> alamat }}</td>
+                  <td>{{ $wg -> rt }}</td>
+                  <td>{{ $wg -> rw }}</td>
+                  <td>{{ $wg -> agama }}</td>
                 </tr>
+                @endforeach
               </table>
             </div>
             <!-- /.box-body -->
@@ -105,21 +103,10 @@
 
 @section('scriptjs')
 
-<!-- jQuery 3 -->
-<script src="{{url('assets/bower_components/jquery/dist/jquery.min.js')}}"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="{{url('assets/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 <!-- DataTables -->
 <script src="{{url('assets/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{url('assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
-<!-- SlimScroll -->
-<script src="{{url('assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
-<!-- FastClick -->
-<script src="{{url('assets/bower_components/fastclick/lib/fastclick.js')}}"></script>
-<!-- AdminLTE App -->
-<script src="{{url('assets/dist/js/adminlte.min.js')}}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{url('assets/dist/js/demo.js')}}"></script>
+
 <!-- page script -->
 <script>
   $(function () {

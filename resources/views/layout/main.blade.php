@@ -350,7 +350,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{url('/data_penduduk')}}"><i class="fa fa-circle-o"></i> Data Penduduk</a></li>
+            <li><a href="{{url('/penduduk')}}"><i class="fa fa-circle-o"></i> Data Penduduk</a></li>
             <li><a href="{{url('/data_pengurus')}}"><i class="fa fa-circle-o"></i> Data Pengurus</a></li>
             <li><a href="{{url('/reg_penduduk')}}"><i class="fa fa-circle-o"></i> Register Penduduk</a></li>
             <li><a href="{{url('/data_pemasang')}}"><i class="fa fa-circle-o"></i> Data Pelanggan</a></li>
