@@ -40,9 +40,13 @@
 Route::get('/',function(){
     return view('welcome');
 });
+
+
 Route::get('/login', 'AuthController@login')->name('login');
 Route::get('/postlogin', 'AuthController@postlogin');
 Route::get('/postlogout', 'AuthController@postlogout');
+
+Auth::routes();
 
 Route::group(['middleware' => ['auth','checkRole:admin']],function(){
     Route::get('/dashboard','DashboardController@index');
@@ -54,6 +58,5 @@ Route::group(['middleware' => ['auth','checkRole:admin']],function(){
     Route::get('/penduduk/{Penduduk}/delete','PendudukController@delete');
     Route::get('/penduduk/{Penduduk}/profile','PendudukController@profile');
 });
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
