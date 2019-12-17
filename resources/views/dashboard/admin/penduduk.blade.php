@@ -32,13 +32,11 @@
                   <th>NIK</th>
                   <th>Nama Lengkap</th>
                   <th>No. Telp</th>
-                  <th>Tempat Lahir</th>
                   <th>Tgl. Lahir</th>
                   <th>L/P</th>
                   <th>Alamat</th>
                   <th>RT</th>
                   <th>RW</th>
-                  <th>Agama</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -50,13 +48,11 @@
                   </td>
                   <td>{{ $wg -> nama_lengkap }}</td>
                   <td>{{ $wg -> tlp }}</td>
-                  <td>{{ $wg -> tempat_lahir }}</td>
                   <td>{{ $wg -> tgl_lahir }}</td>
                   <td>{{ $wg -> jenis_kel }}</td>
                   <td>{{ $wg -> alamat }}</td>
                   <td>{{ $wg -> rt }}</td>
                   <td>{{ $wg -> rw }}</td>
-                  <td>{{ $wg -> agama }}</td>
                 </tr>
                 @endforeach
               </table>
