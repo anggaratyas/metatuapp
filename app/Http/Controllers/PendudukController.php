@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Penduduk;
 use Illuminate\Http\Request;
 
 class PendudukController extends Controller
@@ -13,7 +14,8 @@ class PendudukController extends Controller
      */
     public function index()
     {
-        //
+        $warga = Penduduk::all();
+        return view('dashboard/admin/penduduk', ['warga' => $warga]);
     }
 
     /**
@@ -40,21 +42,21 @@ class PendudukController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Penduduk  $penduduk
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Penduduk $penduduk)
     {
-        //
+        return view('dashboard.admin.warga', compact($penduduk));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Penduduk  $penduduk
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Penduduk $penduduk)
     {
         //
     }
@@ -63,10 +65,10 @@ class PendudukController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Penduduk  $penduduk
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Penduduk $penduduk)
     {
         //
     }
@@ -74,10 +76,10 @@ class PendudukController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Penduduk  $penduduk
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Penduduk $penduduk)
     {
         //
     }
