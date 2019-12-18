@@ -11,57 +11,20 @@
 |
 */
 
-
-
-// Route::get('/data_pemasang', function(){
-//     return view('dashboard/pelanggan/user');
-// });
-
-// Route::get('/data_penduduk', function(){
-//     return view('dashboard/admin/penduduk');
-// });
-
-
-
-// Route::get('/profil', function(){
-//     return view('dashboard/pelanggan/profile');
-// });
-
-// Route::get('/', 'PagesController@index');
-
-// Route::get('/penduduk', 'PendudukController@index');
-// Route::get('/penduduk/{Penduduk}', 'PendudukController@show');
-
-// Auth::routes();
-
-// Route::get('/home', 'HomeController@index')->name('home');
-
-
 Route::get('/',function(){
     return view('welcome');
 });
-
 
 Route::get('/login', 'AuthController@login')->name('login');
 Route::post('/postlogin', 'AuthController@postlogin');
 Route::get('/logout', 'AuthController@logout');
 
-// Auth::routes();
-
 Route::group(['middleware' => ['auth','checkRole:admin']],function(){
-    Route::get('/dashboard','DashboardController@index');
-    Route::get('/penduduk','PendudukController@index');
-    Route::get('/penduduk/create','PendudukController@create');
-    Route::get('/penduduk/{penduduk}','PendudukController@show');
-    Route::get('/penduduk/{Penduduk}/edit','PendudukController@edit');
-    Route::get('/penduduk/{Penduduk}/update','PendudukController@update');
-    Route::get('/penduduk/{Penduduk}/delete','PendudukController@delete');
-    Route::get('/penduduk/{Penduduk}/profile','PendudukController@profile');
-    Route::post('/penduduk','PendudukController@store');
+    Route::resource('dashboard','DashboardController');
+    Route::resource('user','UserController');
+    Route::resource('penduduk','PendudukController');
 });
 
-Route::group(['middleware' => ['auth','checkRole:admin,pengurus']],function(){
-    Route::get('/dashboard','DashboardController@index');
+Route::group(['middleware' => ['auth','checkRole:admin,pengurus,karyawan']],function(){
+    Route::resource('dashboard','DashboardController'); 
 });
-
-// Route::get('/home', 'HomeController@index')->name('home');

@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title', 'Halaman Tes')
+@section('title', 'User')
 
 @section('header')
   <!-- Tell the browser to be responsive to screen width -->
@@ -29,28 +29,22 @@
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
-
-
 @endsection
 
 
-
-@section('judul_page','Data Penduduk Metatu')
+@section('judul_page','Data User Aplikasi')
 @section('subjudul','')
 
 @section('mainpage')
 <!-- MAIN CONTENT -->
-
-
     <!-- Main content -->
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
 
-
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Penduduk</h3>
+              <h3 class="box-title">Data User</h3>
               @if (session('status'))
                   <div class="alert alert-success">
                       {{ session('status') }}
@@ -63,32 +57,24 @@
                 <thead>
                 <tr>
                   <th>No</th>
-                  <th>NIK</th>
-                  <th>Nama Lengkap</th>
-                  <th>No. Telp</th>
-                  <th>Tgl. Lahir</th>
-                  <th>L/P</th>
-                  <th>Alamat</th>
-                  <th>RT</th>
-                  <th>RW</th>
+                  <th>Nama</th>
+                  <th>Jabatan</th>
+                  <th>Email</th>
+                  <th>Hak Akses</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php $no = 0;?>
-                @foreach ( $penduduk as $penduduk )
+                @foreach ( $user as $user )
                 <?php $no++ ;?>
                 <tr>
                   <td>{{ $no }}</td>
                   <td>
-                  <a href="/penduduk/{{ $penduduk -> id }}">{{ $penduduk -> nik }}</a>
+                  <a href="/user/{{ $user -> id }}">{{ $user -> name }}</a>
                   </td>
-                  <td>{{ $penduduk -> nama_lengkap }}</td>
-                  <td>{{ $penduduk -> tlp }}</td>
-                  <td>{{ $penduduk -> tgl_lahir }}</td>
-                  <td>{{ $penduduk -> jenis_kel }}</td>
-                  <td>{{ $penduduk -> alamat }}</td>
-                  <td>{{ $penduduk -> rt }}</td>
-                  <td>{{ $penduduk -> rw }}</td>
+                  <td>{{ $user -> jabatan }}</td>
+                  <td>{{ $user -> email }}</td>
+                  <td>{{ $user -> role }}</td>
                 </tr>
                 @endforeach
               </table>

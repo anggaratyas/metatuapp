@@ -11,6 +11,11 @@
   <link rel="stylesheet" href="{{url('assets/bower_components/font-awesome/css/font-awesome.min.css')}}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="{{url('assets/bower_components/Ionicons/css/ionicons.min.css')}}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{url('assets/dist/css/AdminLTE.min.css')}}">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="{{url('assets/dist/css/skins/_all-skins.min.css')}}">
 
 
   <!-- daterange picker -->
@@ -84,15 +89,15 @@
 
 @section('mainpage')
 <!-- MAIN CONTENT -->
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+      @if ($errors->any())
+          <div class="alert alert-danger">
+              <ul>
+                  @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                  @endforeach
+              </ul>
+          </div>
+      @endif
 
    <!-- Main content -->
    <section class="content">
@@ -332,8 +337,6 @@
 <script src="{{url('assets/bower_components/jquery/dist/jquery.min.js')}}"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="{{url('assets/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-
-
 <!-- Select2 -->
 <script src="{{url('assets/bower_components/select2/dist/js/select2.full.min.js')}}"></script>
 <!-- InputMask -->
@@ -353,9 +356,6 @@
 <script src="{{url('assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
 <!-- iCheck 1.0.1 -->
 <script src="{{url('assets/plugins/iCheck/icheck.min.js')}}"></script>
-
-
-
 <!-- FastClick -->
 <script src="{{url('assets/bower_components/fastclick/lib/fastclick.js')}}"></script>
 <!-- AdminLTE App -->

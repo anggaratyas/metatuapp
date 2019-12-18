@@ -9,19 +9,19 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="{{url('assets/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{url('/assets/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{url('assets/bower_components/font-awesome/css/font-awesome.min.css')}}">
+  <link rel="stylesheet" href="{{url('/assets/bower_components/font-awesome/css/font-awesome.min.css')}}">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="{{url('assets/bower_components/Ionicons/css/ionicons.min.css')}}">
+  <link rel="stylesheet" href="{{url('/assets/bower_components/Ionicons/css/ionicons.min.css')}}">
  
   @yield('header')
 
   <!-- Theme style -->
-  <link rel="stylesheet" href="{{url('assets/dist/css/AdminLTE.min.css')}}">
+  <link rel="stylesheet" href="{{url('/assets/dist/css/AdminLTE.min.css')}}">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="{{url('assets/dist/css/skins/_all-skins.min.css')}}">
+  <link rel="stylesheet" href="{{url('/assets/dist/css/skins/_all-skins.min.css')}}">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -33,9 +33,9 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   
-
-
 </head>
+
+
 <body class="hold-transition skin-blue fixed sidebar-mini">
 <div class="wrapper">
 
@@ -72,7 +72,7 @@
                   <li><!-- start message -->
                     <a href="#">
                       <div class="pull-left">
-                        <img src="assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                        <img src="{{url('/assets/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         Support Team
@@ -85,7 +85,7 @@
                   <li>
                     <a href="#">
                       <div class="pull-left">
-                        <img src="assets/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                        <img src="{{url('/assets/dist/img/user3-128x128.jpg')}}" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         AdminLTE Design Team
@@ -97,7 +97,7 @@
                   <li>
                     <a href="#">
                       <div class="pull-left">
-                        <img src="assets/dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                        <img src="{{url('/assets/dist/img/user4-128x128.jpg')}}" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         Developers
@@ -109,7 +109,7 @@
                   <li>
                     <a href="#">
                       <div class="pull-left">
-                        <img src="assets/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                        <img src="{{url('assets/dist/img/user3-128x128.jpg')}}" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         Sales Department
@@ -121,7 +121,7 @@
                   <li>
                     <a href="#">
                       <div class="pull-left">
-                        <img src="assets/dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                        <img src="{{url('assets/dist/img/user4-128x128.jpg')}}" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         Reviewers
@@ -272,13 +272,13 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="assets/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <img src="{{url('assets/dist/img/user2-160x160.jpg')}}" class="user-image" alt="User Image">
               <span class="hidden-xs">{{auth()->user()->name}}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="{{url('assets/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
 
                 <p>
                 {{auth()->user()->name}} - {{auth()->user()->role}}
@@ -329,7 +329,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="/assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>{{auth()->user()->name}}</p>
@@ -369,6 +369,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
+            <li><a href="{{url('/user')}}"><i class="fa fa-circle-o"></i> Data User</a></li>
+            <li><a href="{{url('/user/create')}}"><i class="fa fa-circle-o"></i> Register User</a></li>
             <li><a href="{{url('/penduduk')}}"><i class="fa fa-circle-o"></i> Data Penduduk</a></li>
             <li><a href="{{url('/penduduk/create')}}"><i class="fa fa-circle-o"></i> Register Penduduk</a></li>
             <li><a href="{{url('/pengurus')}}"><i class="fa fa-circle-o"></i> Data Pengurus</a></li>
@@ -442,6 +444,7 @@
     reserved.
   </footer>
 <!-- ./wrapper -->
+</div>
 
 @yield('scriptjs')
 

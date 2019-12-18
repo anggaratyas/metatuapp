@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Penduduk;
+use App\User;
 use Illuminate\Http\Request;
 
-class PendudukController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class PendudukController extends Controller
      */
     public function index()
     {
-        $penduduk = Penduduk::all();
-        return view('dashboard.admin.penduduk', compact('penduduk'));
+        $user = User::all();
+        return view('dashboard.admin.user', compact('user'));
     }
 
     /**
@@ -25,7 +25,8 @@ class PendudukController extends Controller
      */
     public function create()
     {
-        return view('dashboard.admin.reg');
+        // return view('dashboard.admin.reguser');
+        return view('dashboard.admin.reguser');
     }
 
     /**
@@ -37,33 +38,41 @@ class PendudukController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama_lengkap' => 'required',
-            'nik' => 'required|size:16',
+            'name' => 'required',
+            'role' => 'required',
         ]);
 
 
-        Penduduk::create($request->all());
-        return redirect('/penduduk')->with('status', 'Data Penduduk berhasil ditambahkan');
+        User::create([
+            'name' => $request->name,
+            'jabatan' => $request->jabatan,
+            'email' => $request->email,
+            'role' => $request->role,
+            'password' => bcrypt('$request->password')
+
+        ]);
+        return redirect('/user')->with('status', 'Data Admin berhasil ditambahkan');
+        // return $request;
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Penduduk  $penduduk
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Penduduk $penduduk)
+    public function show(User $user)
     {
-        return view('dashboard.admin.warga', compact('penduduk'));
+        // return view('dashboard.admin.reguser', compact('user'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Penduduk  $penduduk
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Penduduk $penduduk)
+    public function edit($id)
     {
         //
     }
@@ -72,10 +81,10 @@ class PendudukController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Penduduk  $penduduk
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Penduduk $penduduk)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -83,10 +92,10 @@ class PendudukController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Penduduk  $penduduk
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Penduduk $penduduk)
+    public function destroy($id)
     {
         //
     }
