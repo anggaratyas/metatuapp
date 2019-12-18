@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -42,15 +43,14 @@ class UserController extends Controller
             'role' => 'required',
         ]);
 
+        $user = new \App\User;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->role = $request->role;
+        $user->password = bcrypt('$request->name');
+        $user->remember_token = str_random(60);
+        $user->save();
 
-        User::create([
-            'name' => $request->name,
-            'jabatan' => $request->jabatan,
-            'email' => $request->email,
-            'role' => $request->role,
-            'password' => bcrypt('$request->password')
-
-        ]);
         return redirect('/user')->with('status', 'Data Admin berhasil ditambahkan');
         // return $request;
     }
