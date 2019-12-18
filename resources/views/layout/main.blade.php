@@ -135,6 +135,11 @@
               <li class="footer"><a href="#">See All Messages</a></li>
             </ul>
           </li>
+
+
+
+
+
           <!-- Notifications: style can be found in dropdown.less -->
           <li class="dropdown notifications-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -177,6 +182,11 @@
               <li class="footer"><a href="#">View all</a></li>
             </ul>
           </li>
+
+
+
+
+
           <!-- Tasks: style can be found in dropdown.less -->
           <li class="dropdown tasks-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -255,11 +265,15 @@
               </li>
             </ul>
           </li>
+
+
+
+
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="assets/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Dika Anggara</span>
+              <span class="hidden-xs">{{auth()->user()->name}}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -267,7 +281,7 @@
                 <img src="assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Dika Anggara - Web Developer
+                {{auth()->user()->name}} - {{auth()->user()->role}}
                   <small>Member since Nov. 2012</small>
                 </p>
               </li>
@@ -292,7 +306,7 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="{{('/logout')}}" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -318,8 +332,8 @@
           <img src="assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Dika Anggara</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          <p>{{auth()->user()->name}}</p>
+          <a href="#"><i class="fa fa-circle text-success"></i> {{auth()->user()->role}}</a>
         </div>
       </div>
       <!-- search form -->
@@ -335,9 +349,9 @@
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">MAIN NAVIGATION</li>
+        <li class="header">HALAMAN UTAMA</li>
         <li>
-          <a href="{{url('/main')}}">
+          <a href="{{url('/dashboard')}}">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
@@ -356,13 +370,14 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{url('/penduduk')}}"><i class="fa fa-circle-o"></i> Data Penduduk</a></li>
-            <li><a href="{{url('/data_pengurus')}}"><i class="fa fa-circle-o"></i> Data Pengurus</a></li>
             <li><a href="{{url('/reg_penduduk')}}"><i class="fa fa-circle-o"></i> Register Penduduk</a></li>
-            <li><a href="{{url('/data_pemasang')}}"><i class="fa fa-circle-o"></i> Data Pelanggan</a></li>
+            <li><a href="{{url('/pengurus')}}"><i class="fa fa-circle-o"></i> Data Pengurus</a></li>
+            <li><a href="{{url('/reg_pengurus')}}"><i class="fa fa-circle-o"></i> Register Pengurus</a></li>
+            <li><a href="{{url('/pelanggan')}}"><i class="fa fa-circle-o"></i> Data Pelanggan</a></li>
           </ul>
         </li>
         @endif
-
+        
         <li class="treeview">
           <a href="#">
             <i class="fa fa-files-o"></i>
@@ -372,11 +387,12 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{url('/data_pemasang')}}"><i class="fa fa-circle-o"></i> REGISTER PELANGGAN BARU</a></li>
-            <li><a href="{{url('/data_pemasang')}}"><i class="fa fa-circle-o"></i> BACA METER</a></li>
-            <li><a href="{{url('/data_pemasang')}}"><i class="fa fa-circle-o"></i> PEMBAYARAN</a></li>
-            <li><a href="{{url('/data_pemasang')}}"><i class="fa fa-circle-o"></i> KAS MASUK</a></li>
-            <li><a href="{{url('/data_pemasang')}}"><i class="fa fa-circle-o"></i> KAS KELUAR</a></li>
+            <li><a href="{{url('/pelanggan')}}"><i class="fa fa-circle-o"></i> Data Pelanggan</a></li>
+            <li><a href="{{url('/reg_pelanggan')}}"><i class="fa fa-circle-o"></i> REGISTER PELANGGAN BARU</a></li>
+            <li><a href="{{url('/meter')}}"><i class="fa fa-circle-o"></i> BACA METER</a></li>
+            <li><a href="{{url('/bayar')}}"><i class="fa fa-circle-o"></i> PEMBAYARAN</a></li>
+            <li><a href="{{url('/in_kas')}}"><i class="fa fa-circle-o"></i> KAS MASUK</a></li>
+            <li><a href="{{url('/out_kas')}}"><i class="fa fa-circle-o"></i> KAS KELUAR</a></li>
           </ul>
         </li>
 
@@ -394,32 +410,6 @@
             <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Laporan Keuangan</a></li>
             <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> JURNAL</a></li>
           </ul>
-        </li>
-
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-files-o"></i>
-            <span>Unit HIPAM</span>
-            <span class="pull-right-container">
-              <!-- <span class="label label-primary pull-right">4</span> -->
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> REGISTER PELANGGAN BARU</a></li>
-            <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> BACA METER</a></li>
-            <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> PEMBAYARAN</a></li>
-            <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> KAS MASUK</a></li>
-            <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> KAS KELUAR</a></li>
-          </ul>
-        </li>
-
-           <li class="treeview">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>PELAPORAN</span>
-            <span class="pull-right-container">
-              <!-- <i class="fa fa-angle-left pull-right"></i> -->
-            </span>
-          </a>
         </li>
       </ul>
     </section>

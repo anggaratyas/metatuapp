@@ -14,8 +14,8 @@ class PendudukController extends Controller
      */
     public function index()
     {
-        $warga = Penduduk::all();
-        return view('dashboard/admin/penduduk', ['warga' => $warga]);
+        $penduduk = Penduduk::all();
+        return view('dashboard.admin.penduduk', compact('penduduk'));
     }
 
     /**
@@ -47,7 +47,9 @@ class PendudukController extends Controller
      */
     public function show(Penduduk $penduduk)
     {
-        return view('dashboard.admin.warga', compact('penduduk'));
+        // return view('dashboard.admin.warga', compact('penduduk'));
+        // return view('dashboard.admin.warga', compact('penduduk'));
+        return view('dashboard.admin.warga', ['penduduk' => Penduduk::findOrFail($penduduk)]);
     }
 
     /**

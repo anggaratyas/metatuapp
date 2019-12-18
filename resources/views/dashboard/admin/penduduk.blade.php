@@ -69,19 +69,19 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach ( $warga as $wg )
+                @foreach ( $penduduk as $penduduk )
                 <tr>
-                  <td>{{ $wg -> id }}</td>
+                  <td>{{ $penduduk -> id }}</td>
                   <td>
-                  <a href="/penduduk/{{ $wg -> nik }}">{{ $wg -> nik }}</a>
+                  <a href="/penduduk/{{ $penduduk -> id }}">{{ $penduduk -> nik }}</a>
                   </td>
-                  <td>{{ $wg -> nama_lengkap }}</td>
-                  <td>{{ $wg -> tlp }}</td>
-                  <td>{{ $wg -> tgl_lahir }}</td>
-                  <td>{{ $wg -> jenis_kel }}</td>
-                  <td>{{ $wg -> alamat }}</td>
-                  <td>{{ $wg -> rt }}</td>
-                  <td>{{ $wg -> rw }}</td>
+                  <td>{{ $penduduk -> nama_lengkap }}</td>
+                  <td>{{ $penduduk -> tlp }}</td>
+                  <td>{{ $penduduk -> tgl_lahir }}</td>
+                  <td>{{ $penduduk -> jenis_kel }}</td>
+                  <td>{{ $penduduk -> alamat }}</td>
+                  <td>{{ $penduduk -> rt }}</td>
+                  <td>{{ $penduduk -> rw }}</td>
                 </tr>
                 @endforeach
               </table>

@@ -44,7 +44,7 @@ Route::get('/',function(){
 
 Route::get('/login', 'AuthController@login')->name('login');
 Route::post('/postlogin', 'AuthController@postlogin');
-Route::get('/postlogout', 'AuthController@postlogout');
+Route::get('/logout', 'AuthController@logout');
 
 // Auth::routes();
 
@@ -52,7 +52,7 @@ Route::group(['middleware' => ['auth','checkRole:admin']],function(){
     Route::get('/dashboard','DashboardController@index');
     Route::get('/penduduk','PendudukController@index');
     Route::get('/penduduk/create','PendudukController@create');
-    Route::get('/penduduk/{Penduduk}','PendudukController@show');
+    Route::get('/penduduk/{penduduk}','PendudukController@show');
     Route::get('/penduduk/{Penduduk}/edit','PendudukController@edit');
     Route::get('/penduduk/{Penduduk}/update','PendudukController@update');
     Route::get('/penduduk/{Penduduk}/delete','PendudukController@delete');

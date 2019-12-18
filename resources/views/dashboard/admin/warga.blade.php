@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title', 'Detail {{ $penduduk->nama_lengkap }}')
+@section('title', 'Profil')
 
 @section('header')
 
@@ -33,26 +33,27 @@
 
 @endsection
 
-@section('judul_page','Halaman Profil Penduduk')
+@section('judul_page','Profil')
 @section('subjudul','')
 
 @section('mainpage')
 <!-- MAIN CONTENT -->
+@foreach($penduduk as $penduduk)
 
     <!-- Main content -->
     <section class="content">
 
       <div class="row">
         <div class="col-md-3">
-
+          
           <!-- Profile Image -->
           <div class="box box-primary">
             <div class="box-body box-profile">
               <img class="profile-user-img img-responsive img-circle" src="{{url('assets/dist/img/user4-128x128.jpg')}}" alt="User profile picture">
 
-              <h3 class="profile-username text-center">Nina Mcintire</h3>
+              <h3 class="profile-username text-center">{{$penduduk->nama_lengkap}}</h3>
 
-              <p class="text-muted text-center">Software Engineer</p>
+              <p class="text-muted text-center">{{$penduduk->nik}}</p>
 
               <ul class="list-group list-group-unbordered">
                 <li class="list-group-item">
@@ -395,10 +396,11 @@
         <!-- /.col -->
       </div>
       <!-- /.row -->
-
+      
     </section>
     <!-- /.content -->
-
+    
+    @endforeach
 
 
 <!-- END MAIN CONTENT -->      
@@ -407,5 +409,15 @@
 
 @section('scriptjs')
 
+<!-- jQuery 3 -->
+<script src="{{url('assets/bower_components/jquery/dist/jquery.min.js')}}"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="{{url('assets/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+<!-- FastClick -->
+<script src="{{url('assets/bower_components/fastclick/lib/fastclick.js')}}"></script>
+<!-- AdminLTE App -->
+<script src="{{url('assets/dist/js/adminlte.min.js')}}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{url('assets/dist/js/demo.js')}}"></script>
 
 @endsection
