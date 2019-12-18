@@ -25,6 +25,6 @@ Route::group(['middleware' => ['auth','checkRole:admin']],function(){
     Route::resource('penduduk','PendudukController');
 });
 
-Route::group(['middleware' => ['auth','checkRole:admin,pengurus,karyawan']],function(){
-    Route::resource('dashboard','DashboardController'); 
-});
+// Route::group(['middleware' => ['auth','checkRole:admin,pengurus,karyawan']],function(){
+//     Route::resource('dashboard','DashboardController'); 
+// });
