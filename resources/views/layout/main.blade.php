@@ -370,7 +370,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{url('/penduduk')}}"><i class="fa fa-circle-o"></i> Data Penduduk</a></li>
-            <li><a href="{{url('/reg_penduduk')}}"><i class="fa fa-circle-o"></i> Register Penduduk</a></li>
+            <li><a href="{{url('/penduduk/create')}}"><i class="fa fa-circle-o"></i> Register Penduduk</a></li>
             <li><a href="{{url('/pengurus')}}"><i class="fa fa-circle-o"></i> Data Pengurus</a></li>
             <li><a href="{{url('/reg_pengurus')}}"><i class="fa fa-circle-o"></i> Register Pengurus</a></li>
             <li><a href="{{url('/pelanggan')}}"><i class="fa fa-circle-o"></i> Data Pelanggan</a></li>

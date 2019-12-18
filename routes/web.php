@@ -57,6 +57,7 @@ Route::group(['middleware' => ['auth','checkRole:admin']],function(){
     Route::get('/penduduk/{Penduduk}/update','PendudukController@update');
     Route::get('/penduduk/{Penduduk}/delete','PendudukController@delete');
     Route::get('/penduduk/{Penduduk}/profile','PendudukController@profile');
+    Route::post('/penduduk','PendudukController@store');
 });
 
 Route::group(['middleware' => ['auth','checkRole:admin,pengurus']],function(){

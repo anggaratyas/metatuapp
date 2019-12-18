@@ -51,6 +51,11 @@
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Data Penduduk</h3>
+              @if (session('status'))
+                  <div class="alert alert-success">
+                      {{ session('status') }}
+                  </div>
+              @endif
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -69,9 +74,11 @@
                 </tr>
                 </thead>
                 <tbody>
+                <?php $no = 0;?>
                 @foreach ( $penduduk as $penduduk )
+                <?php $no++ ;?>
                 <tr>
-                  <td>{{ $penduduk -> id }}</td>
+                  <td>{{ $no }}</td>
                   <td>
                   <a href="/penduduk/{{ $penduduk -> id }}">{{ $penduduk -> nik }}</a>
                   </td>

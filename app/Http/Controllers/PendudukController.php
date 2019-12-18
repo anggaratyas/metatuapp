@@ -25,7 +25,7 @@ class PendudukController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.admin.reg');
     }
 
     /**
@@ -36,7 +36,14 @@ class PendudukController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama_lengkap' => 'required',
+            'nik' => 'required|size:16',
+        ]);
+
+
+        Penduduk::create($request->all());
+        return redirect('/penduduk')->with('status', 'Data Penduduk berhasil ditambahkan');
     }
 
     /**
@@ -47,8 +54,6 @@ class PendudukController extends Controller
      */
     public function show(Penduduk $penduduk)
     {
-        // return view('dashboard.admin.warga', compact('penduduk'));
-        // return view('dashboard.admin.warga', compact('penduduk'));
         return view('dashboard.admin.warga', ['penduduk' => Penduduk::findOrFail($penduduk)]);
     }
 
