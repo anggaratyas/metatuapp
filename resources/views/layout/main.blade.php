@@ -41,7 +41,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="{{url('/dashboard')}}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>M</b>JM</span>
       <!-- logo for regular state and mobile devices -->
@@ -342,6 +342,11 @@
           </a>
         </li>
 
+
+
+
+        <!-- admin permition -->
+        @if(auth()->user()->role == 'admin')
         <li class="treeview">
           <a href="#">
             <i class="fa fa-files-o"></i>
@@ -356,6 +361,7 @@
             <li><a href="{{url('/data_pemasang')}}"><i class="fa fa-circle-o"></i> Data Pelanggan</a></li>
           </ul>
         </li>
+        @endif
 
         <li class="treeview">
           <a href="#">
@@ -446,21 +452,6 @@
     reserved.
   </footer>
 <!-- ./wrapper -->
-
-
-
-<!-- jQuery 3 -->
-<script src="{{url('assets/bower_components/jquery/dist/jquery.min.js')}}"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="{{url('assets/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-<!-- SlimScroll -->
-<script src="{{url('assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
-<!-- FastClick -->
-<script src="{{url('assets/bower_components/fastclick/lib/fastclick.js')}}"></script>
-<!-- AdminLTE App -->
-<script src="{{url('assets/dist/js/adminlte.min.js')}}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{url('assets/dist/js/demo.js')}}"></script>
 
 @yield('scriptjs')
 

@@ -43,20 +43,24 @@ Route::get('/',function(){
 
 
 Route::get('/login', 'AuthController@login')->name('login');
-Route::get('/postlogin', 'AuthController@postlogin');
+Route::post('/postlogin', 'AuthController@postlogin');
 Route::get('/postlogout', 'AuthController@postlogout');
 
-Auth::routes();
+// Auth::routes();
 
 Route::group(['middleware' => ['auth','checkRole:admin']],function(){
     Route::get('/dashboard','DashboardController@index');
     Route::get('/penduduk','PendudukController@index');
-    Route::get('/penduduk/{Penduduk}','PendudukController@show');
     Route::get('/penduduk/create','PendudukController@create');
+    Route::get('/penduduk/{Penduduk}','PendudukController@show');
     Route::get('/penduduk/{Penduduk}/edit','PendudukController@edit');
     Route::get('/penduduk/{Penduduk}/update','PendudukController@update');
     Route::get('/penduduk/{Penduduk}/delete','PendudukController@delete');
     Route::get('/penduduk/{Penduduk}/profile','PendudukController@profile');
+});
+
+Route::group(['middleware' => ['auth','checkRole:admin,pengurus']],function(){
+    Route::get('/dashboard','DashboardController@index');
 });
 
 // Route::get('/home', 'HomeController@index')->name('home');

@@ -1,12 +1,24 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Dashboard;
+use Auth;
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class AuthController extends Controller
 {
+
+    public function login(){
+        return view('welcome');
+    }
+
+    public function postlogin(Request $request){
+        $masuk = $request->only('name', 'password');
+        if(Auth::attempt($masuk)){
+            return redirect()->intended('/dashboard');
+        }
+        return redirect('/login');
+        // dd($request->all());
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +26,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard.index');
+        //
     }
 
     /**
@@ -41,10 +53,10 @@ class DashboardController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Dashboard  $dashboard
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Dashboard $dashboard)
+    public function show($id)
     {
         //
     }
@@ -52,10 +64,10 @@ class DashboardController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Dashboard  $dashboard
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Dashboard $dashboard)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +76,10 @@ class DashboardController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Dashboard  $dashboard
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Dashboard $dashboard)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +87,10 @@ class DashboardController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Dashboard  $dashboard
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Dashboard $dashboard)
+    public function destroy($id)
     {
         //
     }
