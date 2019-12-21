@@ -15,16 +15,22 @@ Route::get('/',function(){
     return view('welcome');
 });
 
+Auth::routes();
+
+Route::get('/home', 'AuthController@login')->name('login');
+
 Route::get('/login', 'AuthController@login')->name('login');
 Route::post('/postlogin', 'AuthController@postlogin');
 Route::get('/logout', 'AuthController@logout');
 
-Route::group(['middleware' => ['auth','checkRole:admin']],function(){
+Route::group(['middleware' => ['auth','checkRole:sudo']],function(){
     Route::resource('dashboard','DashboardController');
     Route::resource('user','UserController');
     Route::resource('penduduk','PendudukController');
 });
 
-Route::group(['middleware' => ['auth','checkRole:admin,pengurus,karyawan']],function(){
+Route::group(['middleware' => ['auth','checkRole:sudo,admin,pengurus, karyawan']],function(){
     Route::resource('dashboard','DashboardController'); 
 });
+
+

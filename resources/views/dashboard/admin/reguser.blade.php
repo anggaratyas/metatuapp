@@ -83,15 +83,11 @@
                           <label>Email</label>
                           <input name="email" type="email" class="form-control" value="{{old('email')}}">                       
                         </div>
-
-                        <div class="form-group">
-                          <label>Hak Akses</label>
-                          <select name="role" class="form-control select2" style="width: 100%;" value="{{old('role')}}">
-                            <option>admin</option>
-                            <option>pengurus</option>
-                            <option>karyawan</option>
-                          </select>                      
-                        </div>
+                        
+                        <!-- <div class="form-group">
+                            <label>Hak Akses</label>
+                            <input name="role" type="text" class="form-control" value="{{old('role')}}">
+                        </div> -->
 
                         <div class="form-group">
                           <label>Password</label>

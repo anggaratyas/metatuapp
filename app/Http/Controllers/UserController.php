@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Str;
 
 class UserController extends Controller
@@ -40,15 +44,15 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'role' => 'required',
+            'password' => 'required',
         ]);
 
         $user = new \App\User;
+        $user->role = 'admin';
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->role = $request->role;
-        $user->password = bcrypt('$request->name');
-        $user->remember_token = str_random(60);
+        $user->password = Hash::make($request['password']);
+        $user->remember_token = Str::random(60);
         $user->save();
 
         return redirect('/user')->with('status', 'Data Admin berhasil ditambahkan');

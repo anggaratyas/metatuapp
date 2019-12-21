@@ -360,7 +360,7 @@
 
 
         <!-- admin permition -->
-        @if(auth()->user()->role == 'admin')
+        @if(auth()->user()->role == 'sudo')
         <li class="treeview">
           <a href="#">
             <i class="fa fa-files-o"></i>
@@ -371,6 +371,24 @@
           <ul class="treeview-menu">
             <li><a href="{{url('/user')}}"><i class="fa fa-circle-o"></i> Data User</a></li>
             <li><a href="{{url('/user/create')}}"><i class="fa fa-circle-o"></i> Register User</a></li>
+            <li><a href="{{url('/penduduk')}}"><i class="fa fa-circle-o"></i> Data Penduduk</a></li>
+            <li><a href="{{url('/penduduk/create')}}"><i class="fa fa-circle-o"></i> Register Penduduk</a></li>
+            <li><a href="{{url('/pengurus')}}"><i class="fa fa-circle-o"></i> Data Pengurus</a></li>
+            <li><a href="{{url('/reg_pengurus')}}"><i class="fa fa-circle-o"></i> Register Pengurus</a></li>
+            <li><a href="{{url('/pelanggan')}}"><i class="fa fa-circle-o"></i> Data Pelanggan</a></li>
+          </ul>
+        </li>
+        @endif
+
+        @if(auth()->user()->role == 'admin')
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-files-o"></i>
+            <span>Basis Data</span>
+            <span class="pull-right-container">
+            </span>
+          </a>
+          <ul class="treeview-menu">
             <li><a href="{{url('/penduduk')}}"><i class="fa fa-circle-o"></i> Data Penduduk</a></li>
             <li><a href="{{url('/penduduk/create')}}"><i class="fa fa-circle-o"></i> Register Penduduk</a></li>
             <li><a href="{{url('/pengurus')}}"><i class="fa fa-circle-o"></i> Data Pengurus</a></li>
