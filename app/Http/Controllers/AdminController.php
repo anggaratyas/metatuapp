@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Admin;
+use App\Penduduk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Pagination\LengthAwarePaginator;
+
 
 class AdminController extends Controller
 {
@@ -14,7 +18,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        $admin = Admin::all();
+        return view('dashboard.admin.pengurus', compact('admin'));
     }
 
     /**
@@ -22,9 +27,17 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        // $penduduk = DB::table('penduduks')->paginate(10);
+
+        $filter = $request -> cari;
+        $search = Penduduk::where('nik', 'like', '%'.$filter.'%')->get();
+        // return response()->json(['data' => $search]);
+
+
+        return view('dashboard.admin.regadmin', compact('search'));
+
     }
 
     /**
@@ -82,4 +95,14 @@ class AdminController extends Controller
     {
         //
     }
+
+
+    public function search(Request $request)
+    {
+        $filter = '3525040607640001';
+        $search = Penduduk::where('nik', 'like', '%'.$filter.'%')->get();
+        return response()->json(['data' => $search]);
+        // return view('dashboard.admin.regadmin', compact('search'));
+    }
+
 }

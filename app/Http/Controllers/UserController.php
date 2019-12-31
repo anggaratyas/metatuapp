@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Yajra\Datatables\Datatables;
+
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Hash;
@@ -20,7 +22,13 @@ class UserController extends Controller
     public function index()
     {
         $user = User::all();
-        return view('dashboard.admin.user', compact('user'));
+        return view('user.index', compact('user'));
+    }
+
+    public function getdatauser()
+    {
+        $user = User::select('users.*');
+        return \DataTables::eloquent($user)->toJson();
     }
 
     /**

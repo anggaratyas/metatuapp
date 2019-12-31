@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Penduduk;
 use Illuminate\Http\Request;
+use Yajra\Datatables\Datatables;
 
 class PendudukController extends Controller
 {
@@ -14,8 +15,14 @@ class PendudukController extends Controller
      */
     public function index()
     {
-        $penduduk = Penduduk::all();
-        return view('dashboard.admin.penduduk', compact('penduduk'));
+        
+        return view('penduduk.index');
+    }
+        
+    public function getdatapenduduk()
+    {
+        $penduduk = Penduduk::select('penduduks.*');
+        return \DataTables::eloquent($penduduk)->toJson();
     }
 
     /**
@@ -54,7 +61,7 @@ class PendudukController extends Controller
      */
     public function show(Penduduk $penduduk)
     {
-        return view('dashboard.admin.warga', compact('penduduk'));
+        return view('dashboard.penduduk.profil', compact('penduduk'));
     }
 
     /**
@@ -90,4 +97,13 @@ class PendudukController extends Controller
     {
         //
     }
+
+    public function profile($id)
+    {
+        $penduduk = Penduduk::find($id);
+        return view('penduduk.profile', ['penduduk' => $penduduk]);
+    }
+
+
+
 }

@@ -63,9 +63,13 @@
                 <thead>
                 <tr>
                   <th>No</th>
+                  <th>Jabatan</th>
                   <th>NIK</th>
                   <th>Nama Lengkap</th>
                   <th>No. Telp</th>
+                  <th>Email</th>
+                  <th>No. SK</th>
+                  <th>Periode Jabatan</th>
                   <th>Tgl. Lahir</th>
                   <th>L/P</th>
                   <th>Alamat</th>
@@ -75,20 +79,24 @@
                 </thead>
                 <tbody>
                 <?php $no = 0;?>
-                @foreach ( $penduduk as $penduduk )
+                @foreach ( $admin as $admin )
                 <?php $no++ ;?>
                 <tr>
                   <td>{{ $no }}</td>
+                  <td>{{ $admin -> jabatan }}</td>
                   <td>
-                  <a href="/penduduk/{{ $penduduk -> id }}">{{ $penduduk -> nik }}</a>
+                  <a href="/pengurus/{{ $admin -> id }}">{{ $admin -> nik }}</a>
                   </td>
-                  <td>{{ $penduduk -> nama_lengkap }}</td>
-                  <td>{{ $penduduk -> tlp }}</td>
-                  <td>{{ $penduduk -> tgl_lahir }}</td>
-                  <td>{{ $penduduk -> jenis_kel }}</td>
-                  <td>{{ $penduduk -> alamat }}</td>
-                  <td>{{ $penduduk -> rt }}</td>
-                  <td>{{ $penduduk -> rw }}</td>
+                  <td>{{ $admin -> nama }}</td>
+                  <td>{{ $admin -> tlp }}</td>
+                  <td>{{ $admin -> email }}</td>
+                  <td>{{ $admin -> no_sk }}</td>
+                  <td>{{ $admin -> jab_awal }} - {{ $admin -> jab_akhir }}</td>
+                  <td>{{ $admin -> tgl_lahir }}</td>
+                  <td>{{ $admin -> jenis_kel }}</td>
+                  <td>{{ $admin -> alamat }}</td>
+                  <td>{{ $admin -> rt }}</td>
+                  <td>{{ $admin -> rw }}</td>
                 </tr>
                 @endforeach
               </table>
@@ -102,8 +110,6 @@
       <!-- /.row -->
     </section>
     <!-- /.content -->
-
-
 
 <!-- END MAIN CONTENT -->      
   

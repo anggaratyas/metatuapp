@@ -37,6 +37,8 @@ class CreatePenduduksTable extends Migration
             $table->string('ayah')->nullable();
             $table->char('tlp', 14)->nullable();
             $table->string('email')->unique();
+            $table->string('avatar')->nullable();
+            $table->string('pict_home')->nullable();
             $table->timestamps();
         });
     }
