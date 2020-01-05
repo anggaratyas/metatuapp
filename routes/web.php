@@ -35,7 +35,6 @@ Route::group(['middleware' => ['auth','checkRole:sudo']],function(){
 Route::group(['middleware' => ['auth','checkRole:sudo,admin']],function(){
     Route::resource('dashboard','DashboardController'); 
     Route::resource('penduduk','PendudukController');
-    Route::get('/penduduk/{id}/profile', 'PendudukController@profile');
     Route::resource('pengurus','AdminController');
 
     Route::get('getdatapenduduk',[

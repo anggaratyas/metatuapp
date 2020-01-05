@@ -25,7 +25,7 @@ class PendudukController extends Controller
         $penduduk = Penduduk::select('penduduks.*');
         return \DataTables::eloquent($penduduk)
         ->addColumn('nama_link',function($p){
-            return '<a href="/penduduk/'.$p->id.'/profile">'.$p->nama_lengkap.'</a>';
+            return '<a href="/penduduk/'.$p->id.'">'.$p->nama_lengkap.'</a>';
         })
         ->rawColumns(['nama_link'])
         ->toJson();
@@ -90,7 +90,7 @@ class PendudukController extends Controller
      */
     public function show(Penduduk $penduduk)
     {
-        return view('dashboard.penduduk.profil', compact('penduduk'));
+        return view('penduduk.profile', compact('penduduk'));
     }
 
     /**
@@ -101,7 +101,7 @@ class PendudukController extends Controller
      */
     public function edit(Penduduk $penduduk)
     {
-        //
+        return view('penduduk.edit', compact('penduduk'));
     }
 
     /**
@@ -113,7 +113,27 @@ class PendudukController extends Controller
      */
     public function update(Request $request, Penduduk $penduduk)
     {
-        //
+        Penduduk::where('id', $penduduk->id)
+                ->update([
+                    'nama_lengkap' => $request->nama_lengkap,
+                    'nik' => $request->nik,
+                    'kk' => $request->kk,
+                    'tlp' => $request->tlp,
+                    'tempat_lahir' => $request->tempat_lahir,
+                    'tgl_lahir' => $request->tgl_lahir,
+                    'jenis_kel' => $request->jenis_kel,
+                    'status' => $request->status,
+                    'agama' => $request->agama,
+                    'skul' => $request->skul,
+                    'ibu' => $request->ibu,
+                    'ayah' => $request->ayah,
+                    'kwn' => $request->kwn,
+                    'alamat' => $request->alamat,
+                    'rt' => $request->rt,
+                    'rw' => $request->rw,
+                    'email' => $request->email
+                ]);
+        return redirect('/penduduk')->with('status', 'Data Penduduk berhasil diganti');
     }
 
     /**
@@ -124,15 +144,8 @@ class PendudukController extends Controller
      */
     public function destroy(Penduduk $penduduk)
     {
-        //
+        Penduduk::destroy($penduduk->id);
+        return redirect('/penduduk')->with('status', 'Data Penduduk berhasil dihapus');
     }
-
-    public function profile($id)
-    {
-        $penduduk = Penduduk::find($id);
-        return view('penduduk.profile', ['penduduk' => $penduduk]);
-    }
-
-
 
 }

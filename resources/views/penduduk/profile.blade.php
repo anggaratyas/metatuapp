@@ -30,10 +30,14 @@
                                 <div class="panel-body">                                    
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <button class="btn btn-info btn-rounded btn-block"><span class="fa fa-check"></span> Edit</button>
+                                            <a href="/penduduk/{{$penduduk->id}}/edit" class="btn btn-info btn-rounded btn-block"><span class="fa fa-check"></span> Edit</a>
                                         </div>
                                         <div class="col-md-6">
-                                            <button class="btn btn-primary btn-rounded btn-block"><span class="fa fa-comments"></span> Delete</button>
+                                            <form action="/penduduk/{{$penduduk->id}}" method="POST" class="d-inline">
+                                            @method('delete')
+                                            @csrf
+                                            <button type="submit" class="btn btn-primary btn-rounded btn-block"><span class="fa fa-comments"></span> Delete</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
