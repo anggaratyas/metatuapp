@@ -14,9 +14,16 @@ class AddRelationToClients extends Migration
     public function up()
     {
         Schema::table('clients', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->char('id_pel')->index()->nullable();
+            $table->string('alamat');
+            $table->string('rt');
+            $table->string('rw');
+            $table->date('tgl_daftar')->nullable();
             $table->bigInteger('penduduk_id')->unsigned();
             $table->foreign('penduduk_id')->references('id')->on('penduduks');
             $table->softDeletes();
+            $table->timestamps();
         });
     }
 

@@ -7,7 +7,7 @@
 @endsection
 
 @section('judul_page','Profil')
-@section('subjudul','')
+@section('subjudul', ''.$penduduk->nik.'')
 
 @section('content')
 
@@ -69,6 +69,26 @@
                                     <li class="list-group-item">                                    
                                         <span class="contacts-title">ALAMAT</span>
                                         <p>{{ $penduduk -> alamat }} RT.{{ $penduduk -> rt }} RW.{{ $penduduk -> rw }}</p>
+                                    </li>                                
+                                    <li class="list-group-item">                                    
+                                        <span class="contacts-title">PENDIDIKAN</span>
+                                        <p>{{ $penduduk -> skul }}</p>
+                                    </li>                                
+                                    <li class="list-group-item">                                    
+                                        <span class="contacts-title">STATUS</span>
+                                        <p>{{ $penduduk -> status }}</p>
+                                    </li>                                
+                                    <li class="list-group-item">                                    
+                                        <span class="contacts-title">PEKERJAAN</span>
+                                        <p>{{ $penduduk -> kerja }}</p>
+                                    </li>                                
+                                    <li class="list-group-item">                                    
+                                        <span class="contacts-title">NAMA IBU KANDUNG</span>
+                                        <p>{{ $penduduk -> ibu }}</p>
+                                    </li>                                
+                                    <li class="list-group-item">                                    
+                                        <span class="contacts-title">NAMA AYAH KANDUNG</span>
+                                        <p>{{ $penduduk -> ayah }}</p>
                                     </li>                                
                                 </div>
                             </div>
