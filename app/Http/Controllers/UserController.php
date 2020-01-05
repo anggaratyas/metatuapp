@@ -21,7 +21,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::all();
+        // $user = User::all();
         return view('user.index', compact('user'));
     }
 
@@ -38,8 +38,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        // return view('dashboard.admin.reguser');
-        return view('dashboard.admin.reguser');
+        return view('user.register');
     }
 
     /**

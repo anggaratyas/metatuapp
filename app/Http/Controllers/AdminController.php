@@ -18,8 +18,19 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $admin = Admin::all();
-        return view('dashboard.admin.pengurus', compact('admin'));
+        
+        return view('pengurus.index');
+    }
+
+    public function getdatapengurus()
+    {
+        $admin = Admin::select('admins.*');
+        return \DataTables::eloquent($admin)
+        ->addColumn('nama_link',function($p){
+            return '<a href="/pengurus/'.$p->id.'/profile">'.$p->nama.'</a>';
+        })
+        ->rawColumns(['nama_link'])
+        ->toJson();
     }
 
     /**
@@ -36,7 +47,7 @@ class AdminController extends Controller
         // return response()->json(['data' => $search]);
 
 
-        return view('dashboard.admin.regadmin', compact('search'));
+        return view('pengurus.register', compact('search'));
 
     }
 

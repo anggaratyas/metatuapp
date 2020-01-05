@@ -13,18 +13,18 @@
 
 <!-- PAGE CONTENT WRAPPER -->
 <div class="page-content-wrap">                             
-<div class="row">
-    <div class="col-md-12">
-        <!-- START DEFAULT DATATABLE -->
-        <div class="panel panel-default">
-            <div class="panel-heading">                        
-                <h3 class="panel-title">Data Penduduk Metatu</h3>
+    <div class="row">
+        <div class="col-md-12">
+            <!-- START DEFAULT DATATABLE -->
+            <div class="panel panel-default">
+                <div class="panel-heading">                        
+                    <h3 class="panel-title">Data Penduduk Metatu</h3>
 
-                  @if (session('status'))
-                      <div class="alert alert-success">
-                          {{ session('status') }}
-                      </div>
-                  @endif                              
+                    @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                    @endif                              
                 </div>
                 <div class="panel-body">
                     <table class="table datatable" id="tablependuduk">
@@ -65,7 +65,7 @@
         serverside:true,
         ajax:"{{route('ajax.get.data.penduduk')}}",
         columns:[
-            {data:'nama_lengkap',name:'nama_lengkap'},
+            {data:'nama_link',name:'nama_link'},
             {data:'tlp',name:'tlp'},
             {data:'tempat_lahir',name:'tempat_lahir'},
             {data:'tgl_lahir',name:'tgl_lahir'},

@@ -1,15 +1,18 @@
 @extends('layouts.dash')
-@section('title', 'User')
+@section('title', 'Halaman Tes')
 
 @section('header')
 
 @endsection
 
 
+
 @section('judul_page','Data')
-@section('subjudul','User')
+@section('subjudul','Pengurus')
 
 @section('content')
+
+
 <!-- PAGE CONTENT WRAPPER -->
 <div class="page-content-wrap">                           
     <div class="row">
@@ -17,7 +20,7 @@
     <!-- START DEFAULT DATATABLE -->
             <div class="panel panel-default">
                 <div class="panel-heading">        
-                    <h3 class="panel-title">Data User</h3>
+                    <h3 class="panel-title">Data Pengurus BUMDES JAYA MAKMUR</h3>
                     @if (session('status'))
                     <div class="alert alert-success">
                     {{ session('status') }}
@@ -25,12 +28,21 @@
                     @endif                              
                 </div>
                 <div class="panel-body">
-                    <table class="table datatable" id="tableuser">
+                    <table class="table datatable" id="tablepengurus">
                         <thead>
                             <tr>
-                                <th>Nama</th>
-                                <th>Email</th>
-                                <th>Hak Akses</th>
+                              <th>Jabatan</th>
+                              <th>NIK</th>
+                              <th>Nama Lengkap</th>
+                              <th>No. Telp</th>
+                              <th>Email</th>
+                              <th>No. SK</th>
+                              <th>Periode Jabatan</th>
+                              <th>Tgl. Lahir</th>
+                              <th>L/P</th>
+                              <th>Alamat</th>
+                              <th>RT</th>
+                              <th>RW</th>
                             </tr>
                         </thead>
                     </table>
@@ -40,10 +52,12 @@
         </div>
     </div>                                
 </div>
-<!-- PAGE CONTENT WRAPPER -->  
+<!-- PAGE CONTENT WRAPPER -->     
+  
 @endsection
 
 @section('scriptjs')
+
 <!-- THIS PAGE PLUGINS -->
 <script type="text/javascript" src="{{url('/assets/js/plugins/icheck/icheck.min.js')}}"></script>
 <script type="text/javascript" src="{{url('/assets/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js')}}"></script>
@@ -53,14 +67,15 @@
 
 <!-- END PAGE PLUGINS -->
 <script >
-    $('#tableuser').DataTable({
+    $('#tablepengurus').DataTable({
         processing:true,
         serverside:true,
-        ajax:"{{route('ajax.get.data.user')}}",
+        ajax:"{{route('ajax.get.data.pengurus')}}",
         columns:[
-            {data:'name',name:'name'},
+            {data:'nama_link',name:'nama_link'},
+            {data:'tlp',name:'tlp'},
             {data:'email',name:'email'},
-            {data:'role',name:'role'}
+            {data:'no_sk',name:'no_sk'}
         ]
     });
 </script>

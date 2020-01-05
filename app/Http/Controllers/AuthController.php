@@ -1,14 +1,25 @@
 <?php
 
 namespace App\Http\Controllers;
+
+
 use Auth;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
 
+    // use AuthenticatesUsers;
+
+    // protected $redirectTo = '/';
+
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
+
     public function login(){
-        return view('welcome');
+        return view('auths.login');
     }
 
     public function postlogin(Request $request){
@@ -17,10 +28,9 @@ class AuthController extends Controller
             return redirect()->intended('/dashboard');
         }
         return redirect('/login');
-        // dd($request->all());
     }
 
-    public function logout(){
+    public function logout(Request $request){
         Auth::logout();
         return redirect('/login');
     }
@@ -31,7 +41,7 @@ class AuthController extends Controller
      */
     public function index()
     {
-        //
+        return view('welcome');
     }
 
     /**

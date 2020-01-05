@@ -12,38 +12,51 @@
 */
 
 Route::get('/',function(){
-    return view('welcome');
+    return view('auths.login');
 });
 
-Auth::routes();
+    Auth::routes();
 
-Route::get('/home', 'AuthController@login')->name('login');
+    Route::get('/home', 'AuthController@login')->name('login');
+    Route::get('/login', 'AuthController@login')->name('login');
+    Route::post('/postlogin', 'AuthController@postlogin');
+    Route::get('/logout', 'AuthController@logout');
 
-Route::get('/login', 'AuthController@login')->name('login');
-Route::post('/postlogin', 'AuthController@postlogin');
-Route::get('/logout', 'AuthController@logout');
 
 Route::group(['middleware' => ['auth','checkRole:sudo']],function(){
     Route::resource('user','UserController');
+    
+    Route::get('getdatauser',[
+        'uses' => 'UserController@getdatauser',
+        'as' => 'ajax.get.data.user',
+    ]);
 });
 
 Route::group(['middleware' => ['auth','checkRole:sudo,admin']],function(){
     Route::resource('dashboard','DashboardController'); 
-    Route::get('/api/penduduk','APIController@penduduk');
-    Route::resource('pengurus','AdminController');
     Route::resource('penduduk','PendudukController');
     Route::get('/penduduk/{id}/profile', 'PendudukController@profile');
+    Route::resource('pengurus','AdminController');
+
+    Route::get('getdatapenduduk',[
+        'uses' => 'PendudukController@getdatapenduduk',
+        'as' => 'ajax.get.data.penduduk',
+    ]);
+    
+    Route::get('getdatapengurus',[
+        'uses' => 'AdminController@getdatapengurus',
+        'as' => 'ajax.get.data.pengurus',
+    ]);
+
+    Route::get('getdatakaryawan',[
+        'uses' => 'KaryawanController@getdatakaryawan',
+        'as' => 'ajax.get.data.karyawan',
+    ]);
+
+    Route::get('getdatapelanggan',[
+        'uses' => 'PelangganController@getdatapelanggan',
+        'as' => 'ajax.get.data.pelanggan',
+    ]);
 
 });
-
-Route::get('getdatapenduduk',[
-    'uses' => 'PendudukController@getdatapenduduk',
-    'as' => 'ajax.get.data.penduduk',
-]);
-
-Route::get('getdatauser',[
-    'uses' => 'UserController@getdatauser',
-    'as' => 'ajax.get.data.user',
-]);
-
 
