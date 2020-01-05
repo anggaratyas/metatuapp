@@ -44,9 +44,9 @@
                             @if(auth()->user()->role == 'sudo')
                             <li><a href="{{url('/user/create')}}"><span class="fa fa-file-text-o"></span> Register User</a></li>
                             @endif
-                            <li><a href="{{url('/penduduk/create')}}"><span class="fa fa-list-alt"></span> Register Penduduk</a></li>
-                            <li><a href="{{url('/pengurus/create')}}"><span class="fa fa-arrow-right"></span> Register Pengurus</a></li>
-                            <li><a href="{{url('/pelanggan/create')}}"><span class="fa fa-text-width"></span> Register Pelanggan</a></li>
+                            <li><a href="{{url('/penduduk/create')}}"><span class="fa fa-file-text-o"></span> Register Penduduk</a></li>
+                            <li><a href="{{url('/pengurus/create')}}"><span class="fa fa-file-text-o"></span> Register Pengurus</a></li>
+                            <li><a href="{{url('/pelanggan/create')}}"><span class="fa fa-file-text-o"></span> Register Pelanggan</a></li>
                         </ul>
                     </li>
                     <li class="xn-openable">

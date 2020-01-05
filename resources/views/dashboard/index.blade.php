@@ -22,7 +22,7 @@
                                     <div>                                    
                                         <div class="widget-title">Total Penduduk</div>                                                                        
                                         <div class="widget-subtitle">27/08/2014 15:23</div>
-                                        <div class="widget-int">3,548</div>
+                                        <div class="widget-int">5,666</div>
                                     </div>
                                     <div>                                    
                                         <div class="widget-title">Pelanggan</div>
